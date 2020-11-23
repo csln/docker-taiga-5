@@ -78,6 +78,8 @@ RUN set -ex; \
     # urllib3 versions prior to 1.25.9 are insecure
     sed -i 's/^\(urllib3==1\.2\).*/\15.9/' requirements.txt; \
     pip install --no-cache-dir --no-compile -r requirements.txt; \
+    # taiga-contrib-ldap-auth-ext
+	pip install taiga-contrib-ldap-auth-ext; \
     find /usr/local -depth -type d -name tests -exec rm -rf '{}' +; \
     \
     ./manage.py compilemessages; \
